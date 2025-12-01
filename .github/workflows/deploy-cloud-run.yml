@@ -40,10 +40,13 @@ jobs:
             --platform managed \
             --port "$APP_PORT" \
             --allow-unauthenticated \
-            --cpu "1" \
-            --memory "1Gi" \
-            --max-instances "3"
-
+            --cpu "2" \
+            --memory "4Gi" \
+            --timeout "15m" \
+            --max-instances "2" \
+            --execution-environment "gen2" \
+            --set-env-vars "HF_TOKEN=${{ secrets.HF_TOKEN }},GRADIO_SERVER_NAME=0.0.0.0,GRADIO_SERVER_PORT=${APP_PORT}"
+          
           echo "::group::Service URL"
           gcloud run services describe "$SERVICE_NAME" \
             --project "$PROJECT_ID" \
