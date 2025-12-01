@@ -40,7 +40,6 @@ jobs:
             --platform managed \
             --port "$APP_PORT" \
             --allow-unauthenticated \
-            --set-env-vars "PORT=${APP_PORT}" \
             --cpu "1" \
             --memory "1Gi" \
             --max-instances "3"
